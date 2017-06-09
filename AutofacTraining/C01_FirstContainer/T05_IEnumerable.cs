@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace AutofacTraining.C01_FirstContainer
 {
-	public class T05_IEnumerable
+	class T05_IEnumerable
 	{
 		class ProductService
 		{
@@ -27,12 +27,12 @@ namespace AutofacTraining.C01_FirstContainer
 
 		class InternalProductDao : IProductDao
 		{
-			public void Save() { Console.Out.WriteLine("Internal Save "); }
+			public void Save() { Console.WriteLine("Internal Save "); }
 		}
 
 		class ExternalProductDao : IProductDao
 		{
-			public void Save() { Console.Out.WriteLine("External Save "); }
+			public void Save() { Console.WriteLine("External Save "); }
 		}
 
 		[Test]

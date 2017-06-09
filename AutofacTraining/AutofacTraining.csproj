@@ -49,7 +49,9 @@
     <Compile Include="C01_FirstContainer\T01_RegisterType.cs" />
     <Compile Include="C01_FirstContainer\T06_Func.cs" />
     <Compile Include="C01_FirstContainer\T05_IEnumerable.cs" />
-    <Compile Include="C01_FirstContainer\T04_Module.cs" />
+    <Compile Include="C01_FirstContainer\T04_AutofacModule.cs" />
+    <Compile Include="C02_AutoRegister\T01_AssemblyScanning.cs" />
+    <Compile Include="C02_AutoRegister\T02_ACTNARS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="C01_FirstContainer\T03_FirstContainerWithParameter.cs" />
   </ItemGroup>

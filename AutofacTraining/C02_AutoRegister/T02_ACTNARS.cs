@@ -1,10 +1,11 @@
 ﻿using System;
 using Autofac;
+using Autofac.Features.ResolveAnything;
 using NUnit.Framework;
 
-namespace AutofacTraining.C01_FirstContainer
+namespace AutofacTraining.C02_AutoRegister
 {
-	class T01_RegisterType
+	class T02_ACTNARS
 	{
 		class ProductService
 		{
@@ -16,9 +17,17 @@ namespace AutofacTraining.C01_FirstContainer
 
 		class ProductDao
 		{
-			public ProductDao()
+			public ProductDao(Database database)
 			{
 				Console.WriteLine("ProductDao ctor");
+			}
+		}
+
+		class Database
+		{
+			public Database()
+			{
+				Console.WriteLine("Database ctor");
 			}
 		}
 
@@ -26,10 +35,9 @@ namespace AutofacTraining.C01_FirstContainer
 		public void CreateProductService()
 		{
 			var builder = new ContainerBuilder();
-
-			builder.RegisterType<ProductService>();
-			builder.RegisterType<ProductDao>();
-
+			
+			builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
+			
 			var container = builder.Build();
 
 			var productService = container.Resolve<ProductService>();

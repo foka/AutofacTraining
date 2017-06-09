@@ -1,14 +1,15 @@
 ﻿using System;
+using System.Reflection;
 using Autofac;
 using NUnit.Framework;
 
-namespace AutofacTraining.C01_FirstContainer
+namespace AutofacTraining.C02_AutoRegister
 {
-	class T02_AsInterface
+	class T01_AssemblyScanning
 	{
-		interface IProductService { }
-
-		interface IProductDao { }
+		interface IProductService
+		{
+		}
 
 		class ProductService : IProductService
 		{
@@ -16,6 +17,10 @@ namespace AutofacTraining.C01_FirstContainer
 			{
 				Console.WriteLine("ProductService ctor");
 			}
+		}
+
+		interface IProductDao
+		{
 		}
 
 		class ProductDao : IProductDao
@@ -31,8 +36,12 @@ namespace AutofacTraining.C01_FirstContainer
 		{
 			var builder = new ContainerBuilder();
 
-			builder.RegisterType<ProductService>().As<IProductService>();
-			builder.RegisterType<ProductDao>().As<IProductDao>();
+			var thisAssembly = Assembly.GetExecutingAssembly();
+			builder.RegisterAssemblyTypes(thisAssembly)
+//				.Where(t => t.Name.EndsWith("Dao"))
+				.AsImplementedInterfaces();
+
+//			builder.RegisterAssemblyModules(thisAssembly);
 
 			var container = builder.Build();
 

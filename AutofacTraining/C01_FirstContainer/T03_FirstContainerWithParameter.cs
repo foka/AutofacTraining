@@ -4,14 +4,14 @@ using NUnit.Framework;
 
 namespace AutofacTraining.C01_FirstContainer
 {
-	public class T03_WithParameter
+	class T03_WithParameter
 	{
 		class ProductService
 		{
 			public ProductService(ProductDao productDao)
 
 			{
-				Console.Out.WriteLine("ProductService ctor");
+				Console.WriteLine("ProductService ctor");
 			}
 		}
 
@@ -19,7 +19,7 @@ namespace AutofacTraining.C01_FirstContainer
 		{
 			public ProductDao(int timeout)
 			{
-				Console.Out.WriteLine("ProductDao ctor: " + timeout);
+				Console.WriteLine("ProductDao ctor: " + timeout);
 			}
 		}
 

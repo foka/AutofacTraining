@@ -4,14 +4,14 @@ using NUnit.Framework;
 
 namespace AutofacTraining.C01_FirstContainer
 {
-	public class T06_Func
+	class T06_Func
 	{
 		class ProductService
 		{
 			public ProductService(Func<ProductDao> getProductDao)
 			{
 				this.getProductDao = getProductDao;
-				Console.Out.WriteLine("ProductService ctor");
+				Console.WriteLine("ProductService ctor");
 			}
 
 			public void Save()
