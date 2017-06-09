@@ -1,0 +1,12 @@
+bin
+Bin
+obj
+packages
+*ReSharper*
+*.user
+*.bak
+*.csproj.user
+*.suo
+*.userprefs
+*.resources
+/.vs
