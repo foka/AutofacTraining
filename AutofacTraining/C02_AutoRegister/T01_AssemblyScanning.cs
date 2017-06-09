@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 using Autofac;
 using NUnit.Framework;
 
 namespace AutofacTraining.C02_AutoRegister
 {
-	class T01_AssemblyScanning
+	class T01_AssemblyScanning : ContainerTest
 	{
 		interface IProductService
 		{
@@ -31,21 +32,22 @@ namespace AutofacTraining.C02_AutoRegister
 			}
 		}
 
-		[Test]
-		public void CreateProductService()
+		protected override void RegisterComponents(ContainerBuilder builder)
 		{
-			var builder = new ContainerBuilder();
-
 			var thisAssembly = Assembly.GetExecutingAssembly();
+
 			builder.RegisterAssemblyTypes(thisAssembly)
 //				.Where(t => t.Name.EndsWith("Dao"))
+//				.Where(t => t.GetInterfaces().Contains(typeof(IDatabaseService)))
 				.AsImplementedInterfaces();
 
 //			builder.RegisterAssemblyModules(thisAssembly);
+		}
 
-			var container = builder.Build();
-
-			var productService = container.Resolve<IProductService>();
+		[Test]
+		public void CreateProductService()
+		{
+			var productService = Resolve<IProductService>();
 		}
 	}
 }

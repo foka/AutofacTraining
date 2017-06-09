@@ -52,6 +52,7 @@
     <Compile Include="C01_FirstContainer\T04_AutofacModule.cs" />
     <Compile Include="C02_AutoRegister\T01_AssemblyScanning.cs" />
     <Compile Include="C02_AutoRegister\T02_ACTNARS.cs" />
+    <Compile Include="ContainerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="C01_FirstContainer\T03_FirstContainerWithParameter.cs" />
   </ItemGroup>

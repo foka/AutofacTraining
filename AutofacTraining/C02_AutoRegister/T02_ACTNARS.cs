@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace AutofacTraining.C02_AutoRegister
 {
-	class T02_ACTNARS
+	class T02_ACTNARS : ContainerTest
 	{
 		class ProductService
 		{
@@ -31,16 +31,16 @@ namespace AutofacTraining.C02_AutoRegister
 			}
 		}
 
+
+		protected override void RegisterComponents(ContainerBuilder builder)
+		{
+			builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
+		}
+
 		[Test]
 		public void CreateProductService()
 		{
-			var builder = new ContainerBuilder();
-			
-			builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
-			
-			var container = builder.Build();
-
-			var productService = container.Resolve<ProductService>();
+			var productService = Resolve<ProductService>();
 		}
 	}
 }
