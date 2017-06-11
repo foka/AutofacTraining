@@ -20,6 +20,6 @@ namespace AutofacTraining
 			container = builder.Build();
 		}
 
-		private IContainer container;
+		protected IContainer container;
 	}
 }
