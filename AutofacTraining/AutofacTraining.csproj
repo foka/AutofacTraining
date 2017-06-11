@@ -30,8 +30,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac">
-      <HintPath>..\packages\Autofac.4.6.0\lib\net45\Autofac.dll</HintPath>
+    <Reference Include="Autofac, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Autofac.3.3.1\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Extras.DynamicProxy2">
+      <HintPath>..\packages\Autofac.Extras.DynamicProxy2.3.0.7\lib\net40\Autofac.Extras.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.2.2\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
@@ -56,6 +63,7 @@
     <Compile Include="C03_Lifetime\T03_LifetimeScope.cs" />
     <Compile Include="C03_Lifetime\T02_SingleInstance.cs" />
     <Compile Include="C03_Lifetime\T01_InstancePerDependency.cs" />
+    <Compile Include="C04_Interception\T01_Interceptor.cs" />
     <Compile Include="ContainerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="C01_FirstContainer\T03_FirstContainerWithParameter.cs" />
